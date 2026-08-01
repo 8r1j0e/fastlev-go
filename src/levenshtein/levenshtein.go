@@ -1,7 +1,5 @@
 package levenshtien
 
-var peq = make([]uint32, 0x10000)
-
 func Distance(a, b string) int {
 	if len(a) < len(b) {
 		a, b = b, a // swap
@@ -15,7 +13,7 @@ func Distance(a, b string) int {
 		return myers32(a, b)
 	}
 
-	return 100 //myersX(a, b)
+	return myersX(a, b)
 }
 
 func Closest(str string, arr []string) string {

@@ -7,5 +7,8 @@ import (
 )
 
 func main() {
-	fmt.Println(levenshtien.Distance("kitten", "sitting"))
+	a := "abcdefghijklmnopqrstuvwxyz1234567890"
+	b := "abcdefghijklsfrtqrstuvwxyz1234567891"
+
+	fmt.Println(levenshtien.Distance(a, b))
 }
