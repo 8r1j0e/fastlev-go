@@ -1,0 +1,12 @@
+{
+  "name": "fastest-levenshtein-original-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Original test suite for fastest-levenshtein, adapted to run against Go port",
+  "scripts": {
+    "test": "jest --no-cache"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

@@ -1,0 +1,12 @@
+# Go binary
+fastlev
+
+# Node modules (for Jest adapter + differential fuzz)
+bench/cmd/node_modules/
+tests/original/node_modules/
+bench/cmd/testcases/
+
+# IDE 
+.vscode/
+.idea/
+

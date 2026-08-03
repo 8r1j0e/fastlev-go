@@ -1,0 +1,79 @@
+{
+  "bands": [
+    {
+      "N": 4,
+      "PortNs": 21,
+      "PortOps": 47619047.61904762,
+      "JsSubproc": 1045865.38,
+      "JsInproc": 1971888.75,
+      "Speedup": 24.148952429008798
+    },
+    {
+      "N": 8,
+      "PortNs": 38,
+      "PortOps": 26315789.47368421,
+      "JsSubproc": 905378.86,
+      "JsInproc": 1070132.18,
+      "Speedup": 24.591157957406917
+    },
+    {
+      "N": 16,
+      "PortNs": 64,
+      "PortOps": 15625000,
+      "JsSubproc": 491113.79,
+      "JsInproc": 4962188.13,
+      "Speedup": 3.1488124977639655
+    },
+    {
+      "N": 32,
+      "PortNs": 164,
+      "PortOps": 6097560.975609756,
+      "JsSubproc": 487582.73,
+      "JsInproc": 2673124.94,
+      "Speedup": 2.2810609726344313
+    },
+    {
+      "N": 64,
+      "PortNs": 258,
+      "PortOps": 3875968.992248062,
+      "JsSubproc": 582582.19,
+      "JsInproc": 666246.49,
+      "Speedup": 5.817620130723784
+    },
+    {
+      "N": 128,
+      "PortNs": 1809,
+      "PortOps": 552791.597567717,
+      "JsSubproc": 198350.36,
+      "JsInproc": 198652.74,
+      "Speedup": 2.7827031108038933
+    },
+    {
+      "N": 256,
+      "PortNs": 6933,
+      "PortOps": 144237.7037357565,
+      "JsSubproc": 54590.19,
+      "JsInproc": 56031.48,
+      "Speedup": 2.5742261981257055
+    },
+    {
+      "N": 512,
+      "PortNs": 26017,
+      "PortOps": 38436.40696467694,
+      "JsSubproc": 14696.69,
+      "JsInproc": 14928.31,
+      "Speedup": 2.5747326364924725
+    },
+    {
+      "N": 1024,
+      "PortNs": 100538,
+      "PortOps": 9946.487895124232,
+      "JsSubproc": 3774.38,
+      "JsInproc": 3775.28,
+      "Speedup": 2.634635813800362
+    }
+  ],
+  "generated_by": "bench/cmd/bench.go",
+  "methodology": "See bench/methodology.md",
+  "timestamp": "2026-08-03T09:42:06Z"
+}

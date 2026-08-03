@@ -1,0 +1,70 @@
+# Runnable artifact: the fastlev CLI binary.
+#
+# Default:               docker compose up
+# Go port tests:          docker compose --profile test up test-port
+# Original Jest tests:    docker compose --profile test up test-original
+# Diff fuzz (15s):        docker compose --profile fuzz up fuzz-quick
+# Diff fuzz (60s bonus):  docker compose --profile fuzz up fuzz-survivor
+# Go vs Node benchmark:   docker compose --profile bench up bench
+
+services:
+  # Default — run the CLI as a demonstration
+  cli:
+    build: .
+    command: ["--help"]
+
+  # Go port tests (tests/port/)
+  test-port:
+    build: 
+      context: .
+      target: builder
+    entrypoint: []
+    command: ["go", "test", "-v", "./tests/port/"]
+    profiles: ["test"]
+    volumes:
+      ./tests/port:/app/tests/port
+
+  # Original Jest tests (tests/original/) — runs against Go port via adapter
+  test-original:
+    build: 
+      context: .
+      target: builder
+    entrypoint: []
+    working_dir: /app/tests/original
+    command: ["sh", "-c", "npm install && npm test"]
+    profiles: ["test"]
+    volumes:
+      ./tests/original:/app/tests/original
+
+  # Quick differential fuzz (500 pairs, ~15s)
+  fuzz-quick:
+    build: 
+      context: .
+      target: builder
+    entrypoint: []
+    command: ["go", "test", "-v", "-run", "TestFuzz_Quick", "-timeout", "60s", "./fuzz/"]
+    profiles: ["fuzz"]
+    volumes:
+      ./fuzz:/app/fuzz
+
+  # 60-second differential fuzz (survivor bonus)
+  fuzz-survivor:
+    build: 
+      context: .
+      target: builder
+    entrypoint: []
+    command: ["go", "test", "-v", "-run", "TestFuzz_60Seconds", "-timeout", "120s", "./fuzz/"]
+    profiles: ["fuzz"]
+    volumes:
+      ./fuzz:/app/fuzz
+
+  # Go vs Node comparison benchmark
+  bench:
+    build: 
+      context: .
+      target: builder
+    entrypoint: []
+    command: ["go", "run", "./bench/cmd/bench.go", "-runs", "3"]
+    profiles: ["bench"]
+    volumes:
+      ./bench:/app/bench
